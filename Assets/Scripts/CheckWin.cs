@@ -54,7 +54,8 @@ public class CheckWin : MonoBehaviour
                 AudioSource.PlayClipAtPoint(victoryClip[Random.Range(0, victoryClip.Length)], Camera.main.transform.position);
                 
                 PersistingScore actualScore = FindObjectOfType<PersistingScore>();
-                actualScore.AddScore(update.ToString("F3"));
+                if(actualScore != null)
+                    actualScore.AddScore(update.ToString("F3"));
             }
             Time.timeScale = 0f;
             if(sceneName != ""){

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3506328278801027139}
   - component: {fileID: 3506328278801027140}
   m_Layer: 0
-  m_Name: BlockSquare
+  m_Name: BlockRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,5 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609d6c7d19540c5468772103d24a5302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathVFX: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
   destroyClip:
   - {fileID: 8300000, guid: 4f8888ede9f580842a8766cfc79ab987, type: 3}
