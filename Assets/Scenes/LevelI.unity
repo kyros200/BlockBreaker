@@ -368,6 +368,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3323887117904547265, guid: 7048a3a75dcb98346bbef9d3e864be8b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3323887117904547265, guid: 7048a3a75dcb98346bbef9d3e864be8b,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].x
+      value: 0.81693363
+      objectReference: {fileID: 0}
+    - target: {fileID: 3323887117904547265, guid: 7048a3a75dcb98346bbef9d3e864be8b,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].y
+      value: 0.122855365
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7048a3a75dcb98346bbef9d3e864be8b, type: 3}
 --- !u!223 &881120300 stripped
@@ -395,7 +410,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 881120300}
-  sceneName: LevelI
+  sceneNameRetry: LevelI
+  sceneNameQuit: GameOver
   victoryClip:
   - {fileID: 8300000, guid: 50552ac550152af43ab23c93741c58a9, type: 3}
   activeBlocks: 0

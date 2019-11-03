@@ -46,7 +46,42 @@ public class BallI : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision){
+    private void OnCollisionEnter2D(Collision2D coslision)
+    {
+        Rigidbody2D ballRigidBody = GetComponent<Rigidbody2D>();
+
+        LimitVelocity(ballRigidBody);
+        AddBurstWhenStruck(ballRigidBody);
+
         GetComponent<AudioSource>().PlayOneShot(hitClip[Random.Range(0, hitClip.Length)]);
+    }
+
+    private static void AddBurstWhenStruck(Rigidbody2D ballRigidBody)
+    {
+        if (ballRigidBody.velocity.y >= -0.3f && ballRigidBody.velocity.y <= 0.3f)
+        {
+            ballRigidBody.velocity = new Vector2(ballRigidBody.velocity.x, 0.5f);
+        }
+    }
+
+    private static void LimitVelocity(Rigidbody2D ballRigidBody)
+    {
+        if (ballRigidBody.velocity.x >= 25f)
+        {
+            ballRigidBody.velocity = new Vector2(25f, ballRigidBody.velocity.y);
+        }
+        else if (ballRigidBody.velocity.x <= -25f)
+        {
+            ballRigidBody.velocity = new Vector2(-25f, ballRigidBody.velocity.y);
+        }
+
+        if (ballRigidBody.velocity.y >= 25f)
+        {
+            ballRigidBody.velocity = new Vector2(ballRigidBody.velocity.x, 25f);
+        }
+        else if (ballRigidBody.velocity.y <= -25f)
+        {
+            ballRigidBody.velocity = new Vector2(ballRigidBody.velocity.x, -25f);
+        }
     }
 }

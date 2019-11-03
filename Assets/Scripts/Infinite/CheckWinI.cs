@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class CheckWinI : MonoBehaviour
 {
     [SerializeField] Canvas canvas = null;
-    [SerializeField] string sceneName = null;
+    [SerializeField] string sceneNameRetry = null;
+    [SerializeField] string sceneNameQuit = null;
     [SerializeField] AudioClip[] victoryClip = null;
     [SerializeField] int activeBlocks = 0;
     Text levelCompleteText = null;
@@ -40,6 +41,7 @@ public class CheckWinI : MonoBehaviour
 
     private void activeWinFields(bool b){
         nextLevelButton.gameObject.SetActive(b);
+        quitButton.gameObject.SetActive(b);
         levelCompleteText.gameObject.SetActive(b);
     }
 
@@ -53,10 +55,11 @@ public class CheckWinI : MonoBehaviour
         timer = canvas.transform.Find("Timer").GetComponent<Text>();
 
         quitButton = canvas.transform.Find("gameOverButton").GetComponent<Button>();
+        quitButton.onClick.AddListener(delegate { SceneManager.LoadScene(sceneNameQuit); });
         quitButton.gameObject.SetActive(false);
 
         nextLevelButton = canvas.transform.Find("nextLevelButton").GetComponent<Button>();
-        nextLevelButton.onClick.AddListener(delegate { SceneManager.LoadScene(sceneName);} );
+        nextLevelButton.onClick.AddListener(delegate { SceneManager.LoadScene(sceneNameRetry);} );
         activeWinFields(false);
     }
 
@@ -72,7 +75,7 @@ public class CheckWinI : MonoBehaviour
                 AudioSource.PlayClipAtPoint(victoryClip[Random.Range(0, victoryClip.Length)], Camera.main.transform.position);
             }
             Time.timeScale = 0f;
-            if (sceneName != "")
+            if (sceneNameRetry != "" && sceneNameQuit != "")
             {
                 activeWinFields(true);
             }

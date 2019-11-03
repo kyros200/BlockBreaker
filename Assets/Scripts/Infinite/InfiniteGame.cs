@@ -32,7 +32,7 @@ public class InfiniteGame : MonoBehaviour
 
     private void MakeItHarder()
     {
-        if(level <= 30)
+        if(level <= 27)
         {
             level++;
             timeAppearNew -= 0.1f;
